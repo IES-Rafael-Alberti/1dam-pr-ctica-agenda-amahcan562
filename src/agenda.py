@@ -26,7 +26,7 @@ NOMBRE_FICHERO = 'contactos.csv'
 RUTA_FICHERO = path.join(RUTA, NOMBRE_FICHERO)
 
 #TODO: Crear un conjunto con las posibles opciones del menú de la agenda
-OPCIONES_MENU = ?
+OPCIONES_MENU = set(1, 2, 3, 4, 5, 6)
 #TODO: Utiliza este conjunto en las funciones agenda() y pedir_opcion()
 
 
@@ -41,18 +41,20 @@ def borrar_consola():
 
 def cargar_contactos(contactos: list):
     """ Carga los contactos iniciales de la agenda desde un fichero
-    ...
+        :param contactos: Lista vacía de contactos.
     """
     #TODO: Controlar los posibles problemas derivados del uso de ficheros...
-
-    with open(RUTA_FICHERO, 'r') as fichero:
-        for linea in fichero:
-            print(linea)
+    try:
+        with open(RUTA_FICHERO, 'r') as fichero:
+            for linea in fichero:
+                print(linea)
+    except:
 
 
 def eliminar_contacto(contactos: list, email: str):
     """ Elimina un contacto de la agenda
-    ...
+        :param contactos: Lista de contactos.
+        :param email: Correo electrónico.
     """
     try:
         #TODO: Crear función buscar_contacto para recuperar la posición de un contacto con un email determinado
@@ -95,11 +97,11 @@ def main():
     borrar_consola()
 
     #TODO: Asignar una estructura de datos vacía para trabajar con la agenda
-    contactos = ?
+    contactos = []
 
     #TODO: Modificar la función cargar_contactos para que almacene todos los contactos del fichero en una lista con un diccionario por contacto (claves: nombre, apellido, email y telefonos)
     #TODO: Realizar una llamada a la función cargar_contacto con todo lo necesario para que funcione correctamente.
-    cargar_contactos(?)
+    cargar_contactos(contactos)
 
     #TODO: Crear función para agregar un contacto. Debes tener en cuenta lo siguiente:
     # - El nombre y apellido no pueden ser una cadena vacía o solo espacios y se guardarán con la primera letra mayúscula y el resto minúsculas (ojo a los nombre compuestos)
