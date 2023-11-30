@@ -71,17 +71,35 @@ def eliminar_contacto(contactos: list, email: str):
 
 def agenda(contactos: list):
     """ Ejecuta el menú de la agenda con varias opciones
-    ...
+        :param contactos: Lista de los 6 contactos. 
     """
     #TODO: Crear un bucle para mostrar el menú y ejecutar las funciones necesarias según la opción seleccionada...
 
-    while opcion != 7:
+    while opcion != 8:
         mostrar_menu()
         opcion = pedir_opcion()
 
         #TODO: Se valorará que utilices la diferencia simétrica de conjuntos para comprobar que la opción es un número entero del 1 al 6
-        if opcion in ?:
+        if opcion in contactos:
+        
+def mostrar_menu():
+    print("AGENDA\n"
+        "------\n"
+        "1. Nuevo contacto\n"
+        "2. Modificar contacto\n"
+        "3. Eliminar contacto\n"
+        "4. Vaciar agenda\n"
+        "5. Cargar agenda inicial\n"
+        "6. Mostrar contactos por criterio\n"
+        "7. Mostrar la agenda completa\n"
+        "8. Salir\n\n")
+    
 
+def pedir_opcion():
+
+    opcion = input(">> Seleccione una opción: ")
+
+    return opcion
 
 
 def pulse_tecla_para_continuar():
