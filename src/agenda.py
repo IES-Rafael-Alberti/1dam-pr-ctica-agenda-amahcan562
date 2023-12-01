@@ -25,8 +25,10 @@ NOMBRE_FICHERO = 'contactos.csv'
 
 RUTA_FICHERO = path.join(RUTA, NOMBRE_FICHERO)
 
-#TODO: Crear un conjunto con las posibles opciones del menú de la agenda
-OPCIONES_MENU = set(1, 2, 3, 4, 5, 6)
+# Crear un conjunto con las posibles opciones del menú de la agenda
+
+OPCIONES_MENU = set(1, 2, 3, 4, 5, 6, 7, 8)
+
 #TODO: Utiliza este conjunto en las funciones agenda() y pedir_opcion()
 
 
@@ -43,12 +45,19 @@ def cargar_contactos(contactos: list):
     """ Carga los contactos iniciales de la agenda desde un fichero
         :param contactos: Lista vacía de contactos.
     """
-    #TODO: Controlar los posibles problemas derivados del uso de ficheros...
+    # Controlar los posibles problemas derivados del uso de ficheros...
     try:
         with open(RUTA_FICHERO, 'r') as fichero:
             for linea in fichero:
+                contacto = {}
                 print(linea)
-    except:
+    except FileNotFoundError:
+        print("ERROR! El fichero no existe.")
+    except Exception:
+        print("Se ha producido un ERROR!")
+
+
+def anadir_contacto():
 
 
 def eliminar_contacto(contactos: list, email: str):
@@ -69,6 +78,9 @@ def eliminar_contacto(contactos: list, email: str):
         print("No se eliminó ningún contacto")
 
 
+def buscar_contacto():
+
+
 def agenda(contactos: list):
     """ Ejecuta el menú de la agenda con varias opciones
         :param contactos: Lista de los 6 contactos. 
@@ -81,19 +93,20 @@ def agenda(contactos: list):
 
         #TODO: Se valorará que utilices la diferencia simétrica de conjuntos para comprobar que la opción es un número entero del 1 al 6
         if opcion in contactos:
-        
+
+
 def mostrar_menu():
-    print("AGENDA\n"
-        "------\n"
-        "1. Nuevo contacto\n"
-        "2. Modificar contacto\n"
-        "3. Eliminar contacto\n"
-        "4. Vaciar agenda\n"
-        "5. Cargar agenda inicial\n"
-        "6. Mostrar contactos por criterio\n"
-        "7. Mostrar la agenda completa\n"
-        "8. Salir\n\n")
-    
+    print("AGENDA")
+    print("------")
+    print("1. Nuevo contacto")
+    print("2. Modificar contacto")
+    print("3. Eliminar contacto")
+    print("4. Vaciar agenda")
+    print("5. Cargar agenda inicial")
+    print("6. Mostrar contactos por criterio")
+    print("7. Mostrar la agenda completa")
+    print("8. Salir\n\n")
+
 
 def pedir_opcion():
 
